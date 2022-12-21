@@ -11,8 +11,6 @@ def normalize_(value):
 
 def get_diff_dict(key, first_value, second_value):
     sep = {'equal': ' ', 'in_first': '-', 'in_second': '+'}
-    first_value = normalize_(first_value)
-    second_value = normalize_(second_value)
 
     if not first_value or not second_value:
         sep = sep['in_first'] if first_value else sep['in_second']
@@ -52,8 +50,8 @@ def generate_diff(first_file, second_file):
 
     [get_diff_dict(
         key,
-        first_file_content.setdefault(key, ''),
-        second_file_content.setdefault(key, '')
+        normalize_(first_file_content.setdefault(key, '')),
+        normalize_(second_file_content.setdefault(key, ''))
     ) for key in sorted_file_keys]
 
     return get_string(diff_dict)
