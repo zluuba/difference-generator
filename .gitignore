@@ -7,3 +7,5 @@ file1.json
 file2.json
 .pytest_cache/
 __pycache__
+.coverage
+coverage.xml
