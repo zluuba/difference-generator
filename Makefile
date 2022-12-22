@@ -13,6 +13,9 @@ lint:
 test:
 	poetry run pytest
 
+test-coverage:
+	poetry run pytest --cov
+
 # temp commands ----------------------------------
 reinstall:
 	pip install --user dist/*.whl --force-reinstall

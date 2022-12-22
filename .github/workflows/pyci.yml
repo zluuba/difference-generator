@@ -36,9 +36,11 @@ jobs:
           pip install pytest-cov
           make test
       - name: Test & publish code coverage
+
         if: ${{ github.event_name == 'push' }}
         uses: paambaati/codeclimate-action@v3.2.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
+          coverageCommand: make test-coverage
           debug: true
