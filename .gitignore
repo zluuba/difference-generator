@@ -1,5 +1,7 @@
 .idea/
+.venv/
 /dist
 file1.json
 file2.json
-test.py
+.pytest_cache/
+__pycache__
