@@ -5,6 +5,8 @@
 dist/
 file1.json
 file2.json
+file1.yml
+file2.yml
 .pytest_cache/
 __pycache__
 .coverage
