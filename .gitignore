@@ -3,10 +3,10 @@
 .idea/
 .venv/
 dist/
-file1.json
-file2.json
-file1.yml
-file2.yml
+file11.json
+file22.json
+file11.yml
+file22.yml
 .pytest_cache/
 __pycache__
 .coverage
