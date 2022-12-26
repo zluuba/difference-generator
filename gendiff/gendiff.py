@@ -14,7 +14,8 @@ def get_string(value, replacer=' ', spaces_count=1):
         current_indent = replacer * depth
         lines = []
         for key, val in current_value.items():
-            lines.append(f'{deep_indent}{key}: {iter_(val, deep_indent_size)}')
+            line = f'{deep_indent}{key}: {iter_(val, deep_indent_size + 3)}'
+            lines.append(line.rstrip())
         result = itertools.chain("{", lines, [current_indent + "}"])
         return '\n'.join(result)
     return iter_(value, 0)
