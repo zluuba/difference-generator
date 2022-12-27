@@ -23,16 +23,12 @@ def get_parts(value1, value2):
         parts['value2'] = value1
         parts['sep'] = sep_['in_first']
         # d[sep + key] = walker(val1, val1)
-    elif first_dict and (value1 and value2):
-        parts['is_dict'] = 'first'
+    elif or_dict and (value1 and value2):
+        parts['is_dict'] = 'first' if first_dict else 'second'
         parts['is_two'] = True
         parts['sep'] = [sep_['in_first'], sep_['in_second']]
         # d[' - ' + key] = walker(val1, val1)
         # d[' + ' + key] = val2
-    elif second_dict and (value1 and value2):
-        parts['is_dict'] = 'second'
-        parts['is_two'] = True
-        parts['sep'] = [sep_['in_first'], sep_['in_second']]
         # d[' - ' + key] = val1
         # d[' + ' + key] = walker(val2, val2)
     elif not dicts and value1 == value2:
