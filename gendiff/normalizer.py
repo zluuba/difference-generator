@@ -1,18 +1,18 @@
-def normalize_(value):
-    if value == 'True':
-        return 'true'
-    elif value == 'False':
-        return 'false'
-    elif value == 'None':
-        return 'null'
-    return value
+correct_ = {
+    'True': 'true',
+    'False': 'false',
+    'None': 'null'
+}
 
 
-def get_normalize_(tree):
+def normalize_(tree):
 
     def walker(node):
         if not isinstance(node, dict):
-            return normalize_(str(node))
+            node = str(node)
+            if node in correct_.keys():
+                return correct_[node]
+            return node
 
         for key, value in node.items():
             node[key] = walker(value)

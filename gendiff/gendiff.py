@@ -1,61 +1,48 @@
-from gendiff.formatters.stylish import get_formatted_
-from gendiff.normalizer import get_normalize_
+from gendiff.normalizer import normalize_
+from gendiff.get_gendiff_parts import get_parts
 import json
 import yaml
 import os
 
 
-def get_sep(first_value, second_value):
-    sep = {'equal': '   ', 'in_first': ' - ', 'in_second': ' + '}
+def get_diff_node(parts, key, walker):
+    diff_dict = dict()
+    sep = parts['sep']
+    value1, value2 = parts['value1'], parts['value2']
 
-    if first_value is None:
-        return sep['in_second']
-    elif second_value is None:
-        return sep['in_first']
-    return sep['equal']
+    if parts['is_dict'] == 'all' and not parts['is_two']:
+        diff_dict[sep + key] = walker(value1, value2)
+    elif parts['is_dict'] and parts['is_two']:
+        diff_dict[sep[0] + key] = walker(value1, value1)
+        diff_dict[sep[1] + key] = walker(value2, value2)
+    elif parts['is_dict'] and not parts['is_two']:
+        diff_dict[sep + key] = walker(value1, value2)
+    elif not parts['is_dict']:
+        if parts['is_two']:
+            diff_dict[sep[0] + key] = value1
+            diff_dict[sep[1] + key] = value2
+        else:
+            diff_dict[sep + key] = value1 if value1 else value2
+    return diff_dict
 
 
-def make_dict_parts(key, value1, value2):
-    return
+def get_diff_dict(dict1, dict2):
+    def walker(node1, node2):
 
+        if not isinstance(node1, dict) and not isinstance(node2, dict):
+            return node1 if node1 else node2
 
-def get_diff_dict(dic1, dic2):
-    def walker(curr_val1, curr_val2):
-
-        keys = sorted(list(set(curr_val1.keys()) | set(curr_val2.keys())))
-        d = dict()
+        keys = sorted(list(set(node1.keys()) | set(node2.keys())))
+        diff_dict = dict()
 
         for key in keys:
-            curr_val1.setdefault(key, None), curr_val2.setdefault(key, None)
-            val1, val2 = curr_val1[key], curr_val2[key]
-            sep = get_sep(val1, val2)
+            node1.setdefault(key, None), node2.setdefault(key, None)
+            value1, value2 = node1[key], node2[key]
+            parts = get_parts(value1, value2)
+            diff_dict.update(get_diff_node(parts, key, walker))
 
-            if isinstance(val1, dict) and isinstance(val2, dict):
-                d[sep + key] = walker(val1, val2)
-            elif (isinstance(val1, dict) or isinstance(val2, dict)) \
-                    and (not val1 or not val2):
-                d[sep + key] = walker(val1, val1) if isinstance(val1, dict) \
-                    else walker(val2, val2)
-            elif (isinstance(val1, dict) or isinstance(val2, dict)) \
-                    and (val1 and val2):
-                if isinstance(val1, dict):
-                    d[' - ' + key] = walker(val1, val1)
-                    d[' + ' + key] = val2
-                else:
-                    d[' - ' + key] = val1
-                    d[' + ' + key] = walker(val2, val2)
-            elif not isinstance(val1, dict) and not isinstance(val2, dict):
-                if val1 == val2:
-                    d[sep + key] = val1
-                elif val1 is None or val2 is None:
-                    d[sep + key] = val2 if val2 else val1
-                else:
-                    d[' - ' + key] = val1
-                    d[' + ' + key] = val2
-
-        return d
-
-    return walker(dic1, dic2)
+        return diff_dict
+    return walker(dict1, dict2)
 
 
 def generate_diff(first_file, second_file):
@@ -67,8 +54,6 @@ def generate_diff(first_file, second_file):
         first_file_content = yaml.load(open(first_file), Loader=yaml.Loader)
         second_file_content = yaml.load(open(second_file), Loader=yaml.Loader)
 
-    file_one = get_normalize_(first_file_content)
-    file_two = get_normalize_(second_file_content)
-
-    diff_dict = get_diff_dict(file_one, file_two)
-    return get_formatted_(diff_dict)
+    file_one = normalize_(first_file_content)
+    file_two = normalize_(second_file_content)
+    return get_diff_dict(file_one, file_two)
