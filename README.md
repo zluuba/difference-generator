@@ -9,3 +9,7 @@
 
 ### Generate diff - nested files:
 [![asciicast](https://asciinema.org/a/tHGzpIpe4u93imAMITANqZ3fW.svg)](https://asciinema.org/a/tHGzpIpe4u93imAMITANqZ3fW)
+
+
+### Generate diff - plain format:
+[![asciicast](https://asciinema.org/a/WUOBYxL3JIfWbidEeasDnOwfB.svg)](https://asciinema.org/a/WUOBYxL3JIfWbidEeasDnOwfB)
