@@ -1,10 +1,9 @@
-from gendiff.parser import files
+from gendiff.parser import get_files_content
 from gendiff.gendiff import generate_diff
-from gendiff.formatters import stylish
 
 
 def main():
-    return stylish.get_formatted_(generate_diff(*files))
+    return generate_diff(*get_files_content())
 
 
 if __name__ == '__main__':

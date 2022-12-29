@@ -1,18 +1,28 @@
 import itertools
 
 
-def get_formatted_(dictionary, replacer=' ', count=1, indent=3):
+def add_char_to_key(key):
+    chars = {' ': '   ', '+': ' + ', '*': ' + ', '-': ' - '}
+    flag = key[0]
+    second_flag = key[1]
+    return chars[flag] + key[1:] if flag in chars \
+        else chars[second_flag] + key[2:]
+
+
+def get_format_(dictionary, replacer=' ', count=1, indent=3):
 
     def walker(node, depth=0):
         if not isinstance(node, dict):
-            return str(node)
+            return str(node[0]) if isinstance(node, list) else str(node)
 
         deep_indent_size = depth + count
         deep_indent = replacer * deep_indent_size
         current_indent = replacer * depth
         lines = []
         for key, value in node.items():
-            line = f'{deep_indent}{key}: ' \
+            new_key = add_char_to_key(key)
+
+            line = f'{deep_indent}{new_key}: ' \
                    f'{walker(value, deep_indent_size + indent)}'
             lines.append(line.rstrip())
 

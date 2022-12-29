@@ -1,11 +1,9 @@
-correct_ = {
-    'True': 'true',
-    'False': 'false',
-    'None': 'null'
-}
-
-
 def normalize_(tree):
+    correct_ = {
+        'True': 'true',
+        'False': 'false',
+        'None': 'null'
+    }
 
     def walker(node):
         if not isinstance(node, dict):
