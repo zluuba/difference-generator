@@ -16,12 +16,8 @@ test:
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml pytest/tests/
 
+
+
 # temp commands ----------------------------------
 reinstall:
 	pip install --user dist/*.whl --force-reinstall
-
-help:
-	gendiff --help
-
-gendiff_:
-	gendiff file1.json file2.json
