@@ -16,7 +16,7 @@ Started and used with the terminal. </br>
 - [pyyaml](https://pyyaml.org/), version 6.0 or higher
 
 
-### Installation
+### Installation 
 
 You can clone this repo or download it with pip:
 ```ch
