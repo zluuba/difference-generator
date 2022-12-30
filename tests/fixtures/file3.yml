@@ -20,3 +20,9 @@ group2:
 
 group4:
   default: null
+  foo: 0
+  nest:
+    bar:
+    isNested: true
+  isNested: false
+  type: bas

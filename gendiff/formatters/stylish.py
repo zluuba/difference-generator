@@ -29,9 +29,9 @@ def get_format_(dictionary, replacer=' ', count=1, indent=3):
         for key, value in node.items():
             new_key = add_char_to_key(key)
 
-            line = f'{deep_indent}{new_key}:' \
-                   f' {walker(value, deep_indent_size + indent)}'
-            lines.append(line.rstrip())
+            line = f'{deep_indent}{new_key}: ' \
+                   f'{walker(value, deep_indent_size + indent)}'
+            lines.append(line)
 
         result = itertools.chain("{", lines, [current_indent + "}"])
         return '\n'.join(result)
