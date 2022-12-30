@@ -1,5 +1,6 @@
 install:
 	poetry install
+	pip install pyyaml
 
 build:
 	poetry build
