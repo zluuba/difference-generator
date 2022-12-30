@@ -13,3 +13,7 @@
 
 ### Generate diff - plain format:
 [![asciicast](https://asciinema.org/a/WUOBYxL3JIfWbidEeasDnOwfB.svg)](https://asciinema.org/a/WUOBYxL3JIfWbidEeasDnOwfB)
+
+
+### Generate diff - json format:
+[![asciicast](https://asciinema.org/a/ENsHFwq1ET33gH1JZX3x4zavZ.svg)](https://asciinema.org/a/ENsHFwq1ET33gH1JZX3x4zavZ)
