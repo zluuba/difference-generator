@@ -20,8 +20,10 @@ def get_diff_node(parts, key, walker):
             diff_dict[flag[1] + key] = [value1, old_value]
             diff_dict[flag[0] + key] = [value2, old_value]
         else:
-            diff_dict[flag + key] = [value1, old_value] if value1 \
-                else [value2, old_value]
+            diff_dict[flag + key] = [
+                value1 if value1 else value2,
+                old_value
+            ]
     return diff_dict
 
 

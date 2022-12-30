@@ -6,4 +6,5 @@ def get_format_(tree, key='stylish'):
         return plain.get_format_(tree)
     elif key == 'json':
         return json.get_format_(tree)
+
     return stylish.get_format_(tree)

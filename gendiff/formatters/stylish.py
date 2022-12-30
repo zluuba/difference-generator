@@ -1,26 +1,31 @@
 import itertools
 
 
+def get_right_value(node, walker, depth):
+    new_node = node[0]
+    if isinstance(new_node, dict):
+        return walker(new_node, depth)
+    elif isinstance(node, list):
+        return new_node
+    return str(node)
+
+
 def add_char_to_key(key):
-    chars = {' ': '   ', '+': ' + ', '*': ' + ', '-': ' - ', '/': ' - '}
+    flags = {' ': '   ', '+': ' + ', '*': ' + ',
+             '-': ' - ', '/': ' - '}
+    default_flag = flags[' ']
     flag = key[0]
-    if flag in chars:
-        return chars[flag] + key[1:]
-    else:
-        return chars[' '] + key
+
+    if flag in flags:
+        return flags[flag] + key[1:]
+    return default_flag + key
 
 
 def get_format_(dictionary, replacer=' ', count=1, indent=3):
 
     def walker(node, depth=0):
         if not isinstance(node, dict):
-            new_node = node[0]
-            if isinstance(new_node, dict):
-                return walker(new_node, depth)
-            elif isinstance(node, list):
-                return new_node
-            else:
-                return str(node)
+            return get_right_value(node, walker, depth)
 
         deep_indent_size = depth + count
         deep_indent = replacer * deep_indent_size
