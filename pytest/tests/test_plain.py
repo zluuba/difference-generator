@@ -1,4 +1,4 @@
-from gendiff.gendiff import generate_diff
+from gendiff.difference_generator import generate_diff
 from gendiff.parser import get_files_content
 import pytest
 
