@@ -1,5 +1,5 @@
 from gendiff.gendiff_parts import get_parts
-from gendiff.format import get_format_
+from gendiff.formatter import get_format_
 
 
 def get_diff_node(parts, key, walker):

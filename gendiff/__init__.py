@@ -1,4 +1,4 @@
-from gendiff.difference_generator import generate_diff
+from gendiff.difference_generator import generate_diff  # noqa: F401
 
 
 __all__ = (
