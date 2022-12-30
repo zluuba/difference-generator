@@ -1,5 +1,6 @@
 from gendiff.gendiff_parts import get_parts
 from gendiff.formatter import get_format_
+from gendiff.decoder import decode_
 
 
 def get_diff_node(parts, key, walker):
@@ -40,4 +41,4 @@ def generate_diff(file1, file2, style='stylish'):
             diff_dict.update(get_diff_node(parts, key, walker))
 
         return diff_dict
-    return get_format_(walker(file1, file2), style)
+    return get_format_(walker(decode_(file1), decode_(file2)), style)
