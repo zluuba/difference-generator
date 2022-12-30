@@ -46,19 +46,19 @@ gendiff --format
 *Specify the path to the files* </br>
 
 Show the differences between the two files with default style **'stylish'**.
-[Demo](https://github.com/zluuba/python-project-50#generate-diff---nested-files)
+[Demo](https://github.com/zluuba/python-project-50#nested-files-stylish-format)
 ```ch
 gendiff file1.json file2.json
 ```
 
 Show the differences between the two files with style **'plain'**.
-[Demo](https://github.com/zluuba/python-project-50#generate-diff---plain-format)
+[Demo](https://github.com/zluuba/python-project-50#plain-format)
 ```ch
 gendiff --format plain file1.json file2.json
 ```
 
 Show the differences between the two files with style **'json'**.
-[Demo](https://github.com/zluuba/python-project-50#generate-diff---json-format)
+[Demo](https://github.com/zluuba/python-project-50#json-format)
 ```ch
 gendiff --format json file1.json file2.json
 ```

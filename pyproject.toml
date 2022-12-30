@@ -1,13 +1,17 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = "Gendiff compares two configuration files and outputs a list of differences"
+description = "Comparison of two files, output differences list"
 license = "Proprietary"
 authors = ["Luybov Nikitina <zluyba.nikitina@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/zluuba/python-project-50"
-packages = [
-    {include = "gendiff"}
+packages = [{include = "gendiff"}]
+classifiers = [
+    "Environment :: Console",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Topic :: Text Processing"
 ]
 
 [tool.poetry.scripts]
@@ -22,7 +26,6 @@ pyyaml = "^6.0"
 flake8 = "^6.0.0"
 pytest = "^7.2.0"
 pyyaml = "^6.0"
-jsonschema = "^4.17.3"
 
 [build-system]
 requires = ["poetry-core"]
