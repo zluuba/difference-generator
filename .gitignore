@@ -11,3 +11,4 @@ file22.yml
 __pycache__
 .coverage
 coverage.xml
+pytest/
