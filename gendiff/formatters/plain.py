@@ -1,7 +1,12 @@
 def add_quotes_to_(value):
     keywords = ['true', 'false', 'null', '[complex value]']
+    nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     if value in keywords:
         return value
+    if value in nums:
+        return int(value)
+    elif isinstance(value, dict):
+        return '[complex value]'
     return f"'{value}'"
 
 

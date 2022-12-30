@@ -8,9 +8,9 @@ def yaml_2_files():
 
 
 @pytest.fixture
-def stylish2():
-    stylish2 = "tests/fixtures/stylish2.txt"
-    return open(stylish2).read()
+def plain2():
+    plain2 = "tests/fixtures/plain2.txt"
+    return open(plain2).read()
 
 
 @pytest.fixture
