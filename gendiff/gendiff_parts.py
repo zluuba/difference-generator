@@ -17,7 +17,7 @@ def get_parts_if_dict(parts, flags, *values):
         else:
             parts['is_dict'] = 'first' if value1_is_dict else 'second'
             parts['return_two'] = True
-            parts['flag'] = [flags[1], flags[2], flags[4]]
+            parts['flag'] = [flags[2], flags[4]]
     return parts
 
 
@@ -33,7 +33,7 @@ def get_parts_if_not_dict(parts, flags, *values):
         parts['flag'] = flags[1]
     else:
         parts['return_two'] = True
-        parts['flag'] = flags[1], flags[2], flags[4]
+        parts['flag'] = [flags[2], flags[4]]
     return parts
 
 

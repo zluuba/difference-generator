@@ -2,11 +2,9 @@ import itertools
 
 
 def add_char_to_key(key):
-    chars = {' ': '   ', '+': ' + ', '*': ' + ', '-': ' - '}
+    chars = {' ': '   ', '+': ' + ', '*': ' + ', '-': ' - ', '/': ' - '}
     flag = key[0]
-    second_flag = key[1]
-    return chars[flag] + key[1:] if flag in chars \
-        else chars[second_flag] + key[2:]
+    return chars[flag] + key[1:]
 
 
 def get_format_(dictionary, replacer=' ', count=1, indent=3):

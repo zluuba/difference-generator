@@ -1,4 +1,4 @@
-from gendiff.get_gendiff_parts import get_parts
+from gendiff.gendiff_parts import get_parts
 from gendiff.format import get_format_
 
 
@@ -12,12 +12,12 @@ def get_diff_node(parts, key, walker):
     if is_dict and not return_two:
         diff_dict[flag + key] = walker(value1, value2)
     elif is_dict:
-        diff_dict[flag[2] + flag[0] + key] = walker(value1, value1)
-        diff_dict[flag[1] + key] = walker(value2, value2)
+        diff_dict[flag[1] + key] = walker(value1, value1)
+        diff_dict[flag[0] + key] = walker(value2, value2)
     else:
         if return_two:
-            diff_dict[flag[2] + flag[0] + key] = [value1, old_value]
-            diff_dict[flag[1] + key] = [value2, old_value]
+            diff_dict[flag[1] + key] = [value1, old_value]
+            diff_dict[flag[0] + key] = [value2, old_value]
         else:
             diff_dict[flag + key] = [value1, old_value] if value1 \
                 else [value2, old_value]
