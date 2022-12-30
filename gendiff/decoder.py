@@ -8,7 +8,9 @@ def decode_(file):
     _, file_extension = os.path.splitext(file)
     if file_extension == '.json':
         decode_file = json.load(open(file))
-    else:
+    elif file_extension in {'.yaml', '.yml'}:
         decode_file = yaml.load(open(file), Loader=yaml.BaseLoader)
+    else:
+        raise ValueError(f'Unknown format: {file_extension}')
 
     return normalize_(decode_file)
