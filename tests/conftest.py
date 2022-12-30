@@ -2,6 +2,18 @@ import pytest
 
 
 @pytest.fixture
+def yaml_2_files():
+    yaml3, yaml4 = "tests/fixtures/file3.yml", "tests/fixtures/file4.yml"
+    return yaml3, yaml4
+
+
+@pytest.fixture
+def stylish2():
+    stylish2 = "tests/fixtures/stylish2.txt"
+    return open(stylish2).read()
+
+
+@pytest.fixture
 def json_files():
     json1, json2 = "tests/fixtures/file1.json", "tests/fixtures/file2.json"
     return json1, json2

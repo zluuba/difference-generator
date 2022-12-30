@@ -9,6 +9,6 @@ def decode_(file):
     if file_extension == '.json':
         decode_file = json.load(open(file))
     else:
-        decode_file = yaml.load(open(file), Loader=yaml.Loader)
+        decode_file = yaml.load(open(file), Loader=yaml.BaseLoader)
 
     return normalize_(decode_file)
