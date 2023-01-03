@@ -18,3 +18,8 @@ exp.txt
 file7.yml
 file8.yml
 test_plain_hex.py
+
+exp2.txt
+file7.json
+file8.json
+test_stylish_hex.py
