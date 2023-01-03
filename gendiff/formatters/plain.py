@@ -1,22 +1,29 @@
+COMPLEX_VALUE = '[complex value]'
+
+
 def add_quotes_to_(value):
-    keywords = ['true', 'false', 'null']
-    if value in keywords:
-        return value
-    return f"'{value}'"
+    keywords = ['true', 'false', 'null',
+                COMPLEX_VALUE]
+    if isinstance(value, str) and value not in keywords:
+        value = f"'{value}'"
+    elif isinstance(value, dict):
+        value = COMPLEX_VALUE
+    return value
 
 
 def get_new_and_old_(values):
-    complex_value = '[complex value]'
-    if isinstance(values, dict):
-        new_value = complex_value
-        old_value = complex_value
-    elif isinstance(values, list):
-        new_value = add_quotes_to_(values[0])
-        old_value = add_quotes_to_(values[1])
+    if isinstance(values, list):
+        new_value = values[0]
+        old_value = values[1]
+    elif isinstance(values, dict):
+        new_value = COMPLEX_VALUE
+        old_value = COMPLEX_VALUE
     else:
-        new_value = add_quotes_to_(values)
-        old_value = complex_value
-    return new_value, old_value
+        new_value = values
+        old_value = COMPLEX_VALUE
+
+    return add_quotes_to_(new_value), \
+        add_quotes_to_(old_value)
 
 
 def get_event(key, value):
