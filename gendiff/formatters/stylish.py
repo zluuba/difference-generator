@@ -23,6 +23,25 @@ def add_char_to_key(key):
     return default_flag + key
 
 
+def get_line(key, value, walker, deep_indent, deep_indent_size, indent):
+    new_key = add_char_to_key(key)
+    lines = []
+
+    if isinstance(new_key, str):
+        line = f'{deep_indent}{new_key}: ' \
+               f'{walker(value, deep_indent_size + indent)}'
+        lines.append(line)
+    else:
+        line1 = f'{deep_indent}{new_key[0]}: ' \
+                f'{walker(value[0], deep_indent_size + indent)}'
+        line2 = f'{deep_indent}{new_key[1]}: ' \
+                f'{walker(value[1], deep_indent_size + indent)}'
+        lines.append(line1)
+        lines.append(line2)
+
+    return lines
+
+
 def get_format_(dictionary, replacer=' ', count=1, indent=3):
     def walker(node, depth=0):
         if not isinstance(node, dict):
@@ -34,18 +53,9 @@ def get_format_(dictionary, replacer=' ', count=1, indent=3):
         lines = []
 
         for key, value in node.items():
-            new_key = add_char_to_key(key)
-            if isinstance(new_key, str):
-                line = f'{deep_indent}{new_key}: ' \
-                       f'{walker(value, deep_indent_size + indent)}'
-                lines.append(line)
-            else:
-                line1 = f'{deep_indent}{new_key[0]}: ' \
-                        f'{walker(value[0], deep_indent_size + indent)}'
-                line2 = f'{deep_indent}{new_key[1]}: ' \
-                        f'{walker(value[1], deep_indent_size + indent)}'
-                lines.append(line1)
-                lines.append(line2)
+            line = get_line(key, value, walker,
+                            deep_indent, deep_indent_size, indent)
+            lines += line
 
         result = itertools.chain("{", lines, [current_indent + "}"])
         return '\n'.join(result)
