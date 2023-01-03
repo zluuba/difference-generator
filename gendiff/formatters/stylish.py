@@ -23,7 +23,8 @@ def add_char_to_key(key):
     return default_flag + key
 
 
-def get_line(key, value, walker, deep_indent, deep_indent_size, indent):
+def get_line(key, value, walker, *indents):
+    deep_indent, deep_indent_size, indent = indents
     new_key = add_char_to_key(key)
     lines = []
 
