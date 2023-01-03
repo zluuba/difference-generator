@@ -22,7 +22,6 @@ def add_char_to_key(key):
 
 
 def get_format_(dictionary, replacer=' ', count=1, indent=3):
-
     def walker(node, depth=0):
         if not isinstance(node, dict):
             return get_right_value(node, walker, depth)

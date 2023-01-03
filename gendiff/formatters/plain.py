@@ -1,15 +1,8 @@
 def add_quotes_to_(value):
-    keywords = ['true', 'false', 'null', '[complex value]']
-    nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    keywords = ['true', 'false', 'null']
     if value in keywords:
-        right_value = value
-    elif value in nums:
-        right_value = int(value)
-    elif isinstance(value, dict):
-        right_value = keywords[3]
-    else:
-        right_value = f"'{value}'"
-    return right_value
+        return value
+    return f"'{value}'"
 
 
 def get_new_and_old_(values):
@@ -18,12 +11,12 @@ def get_new_and_old_(values):
         new_value = complex_value
         old_value = complex_value
     elif isinstance(values, list):
-        new_value = values[0]
-        old_value = values[1]
+        new_value = add_quotes_to_(values[0])
+        old_value = add_quotes_to_(values[1])
     else:
-        new_value = values
+        new_value = add_quotes_to_(values)
         old_value = complex_value
-    return add_quotes_to_(new_value), add_quotes_to_(old_value)
+    return new_value, old_value
 
 
 def get_event(key, value):

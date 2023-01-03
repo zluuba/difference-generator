@@ -1,15 +1,16 @@
 def normalize_(tree):
     correct_ = {
-        'True': 'true',
-        'False': 'false',
-        'None': 'null'
+        True: 'true',
+        False: 'false',
+        None: 'null'
     }
 
     def walker(node):
         if not isinstance(node, dict):
-            node = str(node)
             if node in correct_.keys():
-                return correct_[node]
+                node = correct_[node]
+            elif str(node).isnumeric():
+                node = int(node)
             return node
 
         for key, value in node.items():
