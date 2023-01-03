@@ -13,7 +13,7 @@ def get_new_and_old_(values):
     if isinstance(values, list):
         value1 = values[0]
         value2 = values[1]
-        if not value2:
+        if value2 is None:
             new_value = value1
             old_value = None
         else:
