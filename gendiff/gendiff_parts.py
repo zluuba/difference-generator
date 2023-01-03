@@ -4,7 +4,7 @@ UPDATE = '+'
 ADD = '*'
 
 
-def get_update_diff_parts(diff_parts, value1, value2, is_dicts):
+def get_updated_diff_parts(diff_parts, value1, value2, is_dicts):
     if value1 == value2:
         diff_parts['value2'] = None
     elif value1 is None:
@@ -32,4 +32,4 @@ def get_diff_parts(value1, value2):
 
     if value1_dict and value2_dict:
         return diff_parts
-    return get_update_diff_parts(diff_parts, value1, value2, is_dicts)
+    return get_updated_diff_parts(diff_parts, value1, value2, is_dicts)

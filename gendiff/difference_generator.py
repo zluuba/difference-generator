@@ -14,20 +14,16 @@ def get_diff_node(diff_parts, key, walker):
 
     if isinstance(value1, dict) or isinstance(value2, dict):
         if flag == '+':
-            diff_node[flag + key] = [
-                walker(value1, value1),
-                walker(value2, value2)
-            ]
+            diff_node[flag + key] = [walker(value1, value1),
+                                     walker(value2, value2)]
         else:
             diff_node[flag + key] = walker(value1, value2)
     else:
         if flag == '+':
             diff_node[flag + key] = [old_value, value2]
         else:
-            diff_node[flag + key] = [
-                value1 if value1 else value2,
-                old_value
-            ]
+            value = value1 if value1 else value2
+            diff_node[flag + key] = [value, old_value]
     return diff_node
 
 
@@ -49,4 +45,6 @@ def generate_diff(file1, file2, style='stylish'):
             diff_dict.update(get_diff_node(diff_parts, key, walker))
 
         return diff_dict
-    return get_format_(walker(normalize_file1, normalize_file2), style)
+
+    diff_dictionary = walker(normalize_file1, normalize_file2)
+    return get_format_(diff_dictionary, style)
