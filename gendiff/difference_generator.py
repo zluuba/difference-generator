@@ -34,8 +34,6 @@ def get_diff_node(diff_parts, key, walker):
 def generate_diff(file1, file2, style='stylish'):
     normalize_file1 = normalize_(upload_(file1))
     normalize_file2 = normalize_(upload_(file2))
-    # print('FILE1 --> ', normalize_file1)
-    # print('FILE2 --> ', normalize_file2)
 
     def walker(node1, node2):
         if not isinstance(node1, dict) or not isinstance(node2, dict):

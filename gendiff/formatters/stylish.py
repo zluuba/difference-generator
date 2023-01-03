@@ -1,15 +1,3 @@
-test = {' common': {'*follow': ['false', None], ' setting1': ['Value 1', 'Value 1'], '-setting2': [200, 200],
-                    '+setting3': ['true', 'null'], '*setting4': ['blah blah', None], '*setting5': {' key5': ['value5', 'value5']},
-                    ' setting6': {' doge': {'+wow': ['too much', 'so much']}, ' key': ['value', 'value'], '*ops': ['vops', None]}},
-        ' group1': {'+baz': ['bas', 'bars'], ' foo': ['bar', 'bar'], '+nest': [{' key': ['value', 'value']}, 'str']},
-        '-group2': {' abc': [12345, 12345], ' deep': {' id': [45, 45]}},
-        '*group3': {' deep': {' id': {' number': [45, 45]}}, ' fee': [100500, 100500]},
-        ' group4': {'+default': ['null', ''], '+foo': ['false', 'null'], '+isNested': ['false', 'none'], '*key': ['false', None],
-                    ' nest': {'+bar': ['', 'false'], '-isNested': ['true', 'true']}, '*someKey': ['true', None],
-                    '+type': ['bas', 'bar']}}
-
-
-
 import itertools
 
 
@@ -36,7 +24,6 @@ def add_char_to_key(key):
 
 
 def get_format_(dictionary, replacer=' ', count=1, indent=3):
-    # print(dictionary)
     def walker(node, depth=0):
         if not isinstance(node, dict):
             return get_right_value(node, walker, depth)
