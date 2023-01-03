@@ -11,18 +11,18 @@ def get_diff_node(diff_parts, key, walker):
     old_value = diff_parts['old_value']
 
     diff_node = dict()
-    flag_is_list = isinstance(flag, list)
 
     if isinstance(value1, dict) or isinstance(value2, dict):
-        if flag_is_list:
-            diff_node[flag[0] + key] = walker(value1, value1)
-            diff_node[flag[1] + key] = walker(value2, value2)
+        if flag == '+':
+            diff_node[flag + key] = [
+                walker(value1, value1),
+                walker(value2, value2)
+            ]
         else:
             diff_node[flag + key] = walker(value1, value2)
     else:
-        if flag_is_list:
-            diff_node[flag[0] + key] = [value1, old_value]
-            diff_node[flag[1] + key] = [value2, old_value]
+        if flag == '+':
+            diff_node[flag + key] = [old_value, value2]
         else:
             diff_node[flag + key] = [
                 value1 if value1 else value2,
@@ -36,8 +36,7 @@ def generate_diff(file1, file2, style='stylish'):
     normalize_file2 = normalize_(upload_(file2))
 
     def walker(node1, node2):
-
-        if not isinstance(node1, dict) and not isinstance(node2, dict):
+        if not isinstance(node1, dict) or not isinstance(node2, dict):
             return node1 if node1 else node2
 
         keys = sorted(list(set(node1.keys()) | set(node2.keys())))

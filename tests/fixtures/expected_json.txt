@@ -12,13 +12,9 @@
          200,
          200
       ],
-      "/setting3": [
-         "true",
-         "true"
-      ],
       "+setting3": [
-         "null",
-         "true"
+         "true",
+         "null"
       ],
       "*setting4": [
          "blah blah",
@@ -32,13 +28,9 @@
       },
       " setting6": {
          " doge": {
-            "/wow": [
-               "",
-               ""
-            ],
             "+wow": [
-               "so much",
-               ""
+               "",
+               "so much"
             ]
          },
          " key": [
@@ -52,25 +44,23 @@
       }
    },
    " group1": {
-      "/baz": [
-         "bas",
-         "bas"
-      ],
       "+baz": [
-         "bars",
-         "bas"
+         "bas",
+         "bars"
       ],
       " foo": [
          "bar",
          "bar"
       ],
-      "/nest": {
-         " key": [
-            "value",
-            "value"
-         ]
-      },
-      "+nest": "str"
+      "+nest": [
+         {
+            " key": [
+               "value",
+               "value"
+            ]
+         },
+         "str"
+      ]
    },
    "-group2": {
       " abc": [

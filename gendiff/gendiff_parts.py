@@ -1,6 +1,6 @@
 DEFAULT = ' '
 DELETE = '-'
-UPDATE = ['/', '+']
+UPDATE = '+'
 ADD = '*'
 
 
