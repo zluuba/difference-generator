@@ -9,17 +9,16 @@ __pycache__
 coverage.xml
 pytest/
 
-file11.json
-file22.json
-file11.yml
-file22.yml
+example1.json
+example2.json
+example1.yml
+example2.yml
 
 exp.txt
+exp2.txt
 file7.yml
 file8.yml
-test_plain_hex.py
-
-exp2.txt
 file7.json
 file8.json
+test_plain_hex.py
 test_stylish_hex.py
