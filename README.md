@@ -5,8 +5,8 @@
 
 
 ## Difference generator
-Difference generator compares two files and outputs the result of the comparison. The **.json** and **.yaml** formats are supported.
-You can also output the comparison result in three different views: **stylish**, **plain** and **json**. </br>
+Compares two files and outputs the result of the comparison. *Json* and *yaml* formats are supported.
+You can also output comparison result in three different views: stylish, plain and json. </br>
 Started and used with the terminal. </br>
 
 
@@ -18,12 +18,12 @@ Started and used with the terminal. </br>
 
 ### Installation 
 
-You can clone this repo or download it with pip:
+Clone this repo or download it with pip:
 ```ch
 pip install --user git+https://github.com/zluuba/python-project-50.git
 ```
 
-Go to the installed folder in the terminal and using these commands to install package:
+Use these commands to install the package:
 ```ch
 make install
 make build
@@ -34,33 +34,32 @@ make package-install
 #### Options
 
 ```ch
-gendiff -h                # print help text and exit
+gendiff -h                # print help text
 gendiff --help
 
-gendiff -f                # set the generator display format
-gendiff --format
+gendiff -f                # set the gendiff format
+gendiff --format          # stylish (default), plain or json
 ```
 
 ### Sample commands
-*You can compare .json or .yaml (.yml) files.* </br>
-*Specify the path to the files* </br>
+*Compare only .json or .yaml (.yml) files.* </br>
 
-Show the differences between the two files with default style **'stylish'**.
+Show the differences between two files with default style **stylish**.
 [Demo](https://github.com/zluuba/python-project-50#nested-files-stylish-format)
 ```ch
 gendiff file1.json file2.json
 ```
 
-Show the differences between the two files with style **'plain'**.
+**Plain** style:
 [Demo](https://github.com/zluuba/python-project-50#plain-format)
 ```ch
 gendiff --format plain file1.json file2.json
 ```
 
-Show the differences between the two files with style **'json'**.
+**Json** style:
 [Demo](https://github.com/zluuba/python-project-50#json-format)
 ```ch
-gendiff --format json file1.json file2.json
+gendiff --format json file1.yml file2.yml
 ```
 
 
