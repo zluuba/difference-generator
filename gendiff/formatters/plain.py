@@ -1,18 +1,18 @@
-KEYWORDS = {'+': 'update', '-': 'remove', '*': 'add', ' ': 'skip'}
-SPECIAL_WORDS = ['true', 'false', 'null']
+FLAGS = {'+': 'update', '-': 'remove', '*': 'add', ' ': 'skip'}
+KEYWORDS = ['true', 'false', 'null']
 COMPLEX_VALUE = '[complex value]'
 
 
-def get_format_value(value):
-    if value in SPECIAL_WORDS:
-        format_value = value
+def get_visible_(value):
+    if value in KEYWORDS:
+        visible_value = value
     elif isinstance(value, int):
-        format_value = value
+        visible_value = value
     elif isinstance(value, dict):
-        format_value = COMPLEX_VALUE
+        visible_value = COMPLEX_VALUE
     else:
-        format_value = f"'{value}'"
-    return format_value
+        visible_value = f"'{value}'"
+    return visible_value
 
 
 def get_new_and_old_(values):
@@ -26,21 +26,20 @@ def get_new_and_old_(values):
     else:
         new_value = values
         old_value = values
-    return get_format_value(new_value), get_format_value(old_value)
+    return get_visible_(new_value), get_visible_(old_value)
 
 
-def get_event(key, value):
-    flag = key[0]
+def get_event(flag, value):
     new_value, old_value = get_new_and_old_(value)
     remove = 'was removed'
     add = f'was added with value: {new_value}'
     update = f'was updated. From {old_value} to {new_value}'
 
-    if KEYWORDS[flag] == 'remove':
+    if FLAGS[flag] == 'remove':
         event = remove
-    elif KEYWORDS[flag] == 'add':
+    elif FLAGS[flag] == 'add':
         event = add
-    elif KEYWORDS[flag] == 'update':
+    elif FLAGS[flag] == 'update':
         event = update
     else:
         event = None
@@ -53,10 +52,10 @@ def get_line(value, key, path, walker):
     current_path = f"{path}{new_key}."
     line = ''
 
-    if isinstance(value, dict) and KEYWORDS[flag] == 'skip':
+    if isinstance(value, dict) and FLAGS[flag] == 'skip':
         line = walker(value, current_path)
     else:
-        event = get_event(key, value)
+        event = get_event(flag, value)
         new_path = current_path.strip('.')
         if event:
             line = f"Property '{new_path}' {event}"

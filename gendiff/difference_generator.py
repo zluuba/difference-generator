@@ -1,7 +1,7 @@
 from gendiff.gendiff_parts import get_diff_parts
 from gendiff.formatter import get_format_
 from gendiff.loader import upload_
-from gendiff.normalizer import normalize_
+from gendiff.normalizer import get_normalize_
 
 
 def get_diff_node(diff_parts, key, walker):
@@ -28,8 +28,8 @@ def get_diff_node(diff_parts, key, walker):
 
 
 def generate_diff(file1, file2, style='stylish'):
-    normalize_file1 = normalize_(upload_(file1))
-    normalize_file2 = normalize_(upload_(file2))
+    normalize_file1 = get_normalize_(upload_(file1))
+    normalize_file2 = get_normalize_(upload_(file2))
 
     def walker(node1, node2):
         if not isinstance(node1, dict) or not isinstance(node2, dict):

@@ -1,4 +1,4 @@
-def normalize_(tree):
+def get_normalize_(tree):
     correct_ = {
         "True": 'true',
         "False": 'false',
