@@ -5,7 +5,6 @@ from gendiff.loader import upload
 def get_diff_parts(value1, value2):
     diff_parts = {'value1': value1,
                   'value2': value2,
-                  'old_value': value1,
                   'flag': 'default'}
 
     value1_not_dict = not isinstance(value1, dict)
