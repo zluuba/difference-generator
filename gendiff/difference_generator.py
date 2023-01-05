@@ -7,13 +7,15 @@ def get_diff_parts(value1, value2):
                   'value2': value2,
                   'old_value': value1,
                   'flag': 'default'}
-    not_dict = not isinstance(value1, dict) or not isinstance(value2, dict)
+
+    value1_not_dict = not isinstance(value1, dict)
+    value2_not_dict = not isinstance(value2, dict)
 
     if value1 == 'value_is_missing':
         diff_parts['flag'] = 'add'
     elif value2 == 'value_is_missing':
         diff_parts['flag'] = 'delete'
-    elif value1 != value2 and not_dict:
+    elif value1 != value2 and (value1_not_dict or value2_not_dict):
         diff_parts['flag'] = 'update'
 
     return diff_parts

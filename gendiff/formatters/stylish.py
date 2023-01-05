@@ -1,6 +1,7 @@
 from gendiff.normalizer import get_normalize_gendiff
 import itertools
 
+
 FLAGS = {'default': '   ', 'add': ' + ', 'delete': ' - '}
 
 
@@ -16,20 +17,18 @@ def get_stylish_value(value):
     return stylish_value
 
 
-def get_flag(value):
+def get_stylish_flag(value):
     if isinstance(value, dict) and 'flag' in value:
         return value['flag']
     return 'default'
 
 
 def get_stylish_key(key, value):
-    flag = get_flag(value)
+    flag = get_stylish_flag(value)
 
     if flag in FLAGS:
         return FLAGS[flag] + key
-
-    return [FLAGS['delete'] + key,
-            FLAGS['add'] + key]
+    return [FLAGS['delete'] + key, FLAGS['add'] + key]
 
 
 def get_line(key, value, walker, *args):
@@ -57,7 +56,7 @@ def get_line(key, value, walker, *args):
     return lines
 
 
-def get_format(dictionary, replacer=' ', count=1, indent=3):
+def get_stylish_diff(dictionary, replacer=' ', count=1, indent=3):
     def walker(node, depth=0):
         if not isinstance(node, dict):
             return node
