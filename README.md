@@ -5,9 +5,9 @@
 
 
 ## Difference generator
-Compares two files and outputs the result of the comparison. *Json* and *yaml* formats are supported.
+Compares two files and outputs the result of the comparison. **Json** and **yaml** formats are supported. </br>
 You can also output comparison result in three different views: stylish, plain and json. </br>
-Started and used with the terminal. </br>
+Used with the terminal. </br>
 
 
 ### Requirements
@@ -44,20 +44,20 @@ gendiff --format          # stylish (default), plain or json
 ### Sample commands
 *Compare only .json or .yaml (.yml) files.* </br>
 
-Show the differences between two files with default style **stylish**.
-[Demo](https://github.com/zluuba/python-project-50#nested-files-stylish-format)
+Show the differences between two files with default style **stylish**
+([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-format))
 ```ch
 gendiff file1.json file2.json
 ```
 
-**Plain** style:
-[Demo](https://github.com/zluuba/python-project-50#plain-format)
+**Plain** style
+([demo](https://github.com/zluuba/python-project-50#plain-format))
 ```ch
 gendiff --format plain file1.json file2.json
 ```
 
-**Json** style:
-[Demo](https://github.com/zluuba/python-project-50#json-format)
+**Json** style
+([demo](https://github.com/zluuba/python-project-50#json-format))
 ```ch
 gendiff --format json file1.yml file2.yml
 ```
@@ -66,16 +66,16 @@ gendiff --format json file1.yml file2.yml
 ### Package examples
 
 #### Flat files (stylish format):
-[![asciicast](https://asciinema.org/a/NhNSYNMJvnWCl2lOep6MM3mJ9.svg)](https://asciinema.org/a/NhNSYNMJvnWCl2lOep6MM3mJ9)
+[![asciicast](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk.svg)](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk)
 
 
 #### Nested files (stylish format):
-[![asciicast](https://asciinema.org/a/tHGzpIpe4u93imAMITANqZ3fW.svg)](https://asciinema.org/a/tHGzpIpe4u93imAMITANqZ3fW)
+[![asciicast](https://asciinema.org/a/arUl8ZVGSi4hzsnaNf0nKwjZL.svg)](https://asciinema.org/a/arUl8ZVGSi4hzsnaNf0nKwjZL)
 
 
 #### Plain format:
-[![asciicast](https://asciinema.org/a/WUOBYxL3JIfWbidEeasDnOwfB.svg)](https://asciinema.org/a/WUOBYxL3JIfWbidEeasDnOwfB)
+[![asciicast](https://asciinema.org/a/0V1KMW2AuUasLxNQ9ty6E11GO.svg)](https://asciinema.org/a/0V1KMW2AuUasLxNQ9ty6E11GO)
 
 
 #### Json format:
-[![asciicast](https://asciinema.org/a/ENsHFwq1ET33gH1JZX3x4zavZ.svg)](https://asciinema.org/a/ENsHFwq1ET33gH1JZX3x4zavZ)
+[![asciicast](https://asciinema.org/a/0kOAC6MbuY8MNGMzFb32oR8bI.svg)](https://asciinema.org/a/0kOAC6MbuY8MNGMzFb32oR8bI)
