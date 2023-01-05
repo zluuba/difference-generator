@@ -1,91 +1,117 @@
 {
-   " common": {
-      "*follow": [
-         "false",
-         null
-      ],
-      " setting1": [
-         "Value 1",
-         "Value 1"
-      ],
-      "-setting2": [
-         200,
-         200
-      ],
-      "+setting3": [
-         "true",
-         "null"
-      ],
-      "*setting4": [
-         "blah blah",
-         null
-      ],
-      "*setting5": {
-         " key5": [
-            "value5",
-            "value5"
-         ]
+   "common": {
+      "follow": {
+         "value1": "value_is_missing",
+         "value2": "false",
+         "old_value": "value_is_missing",
+         "flag": "add"
       },
-      " setting6": {
-         " doge": {
-            "+wow": [
-               "",
-               "so much"
-            ]
+      "setting1": {
+         "value1": "Value 1",
+         "value2": "Value 1",
+         "old_value": "Value 1",
+         "flag": "default"
+      },
+      "setting2": {
+         "value1": 200,
+         "value2": "value_is_missing",
+         "old_value": 200,
+         "flag": "delete"
+      },
+      "setting3": {
+         "value1": "true",
+         "value2": "null",
+         "old_value": "true",
+         "flag": "update"
+      },
+      "setting4": {
+         "value1": "value_is_missing",
+         "value2": "blah blah",
+         "old_value": "value_is_missing",
+         "flag": "add"
+      },
+      "setting5": {
+         "value1": "value_is_missing",
+         "value2": {
+            "key5": "value5"
          },
-         " key": [
-            "value",
-            "value"
-         ],
-         "*ops": [
-            "vops",
-            null
-         ]
+         "old_value": "value_is_missing",
+         "flag": "add"
+      },
+      "setting6": {
+         "doge": {
+            "wow": {
+               "value1": "",
+               "value2": "so much",
+               "old_value": "",
+               "flag": "update"
+            }
+         },
+         "key": {
+            "value1": "value",
+            "value2": "value",
+            "old_value": "value",
+            "flag": "default"
+         },
+         "ops": {
+            "value1": "value_is_missing",
+            "value2": "vops",
+            "old_value": "value_is_missing",
+            "flag": "add"
+         }
       }
    },
-   " group1": {
-      "+baz": [
-         "bas",
-         "bars"
-      ],
-      " foo": [
-         "bar",
-         "bar"
-      ],
-      "+nest": [
-         {
-            " key": [
-               "value",
-               "value"
-            ]
+   "group1": {
+      "baz": {
+         "value1": "bas",
+         "value2": "bars",
+         "old_value": "bas",
+         "flag": "update"
+      },
+      "foo": {
+         "value1": "bar",
+         "value2": "bar",
+         "old_value": "bar",
+         "flag": "default"
+      },
+      "nest": {
+         "value1": {
+            "key": "value"
          },
-         "str"
-      ]
-   },
-   "-group2": {
-      " abc": [
-         12345,
-         12345
-      ],
-      " deep": {
-         " id": [
-            45,
-            45
-         ]
+         "value2": "str",
+         "old_value": {
+            "key": "value"
+         },
+         "flag": "update"
       }
    },
-   "*group3": {
-      " deep": {
-         " id": {
-            " number": [
-               45,
-               45
-            ]
+   "group2": {
+      "value1": {
+         "abc": 12345,
+         "deep": {
+            "id": 45
          }
       },
-      " fee": [
-         100500,
-         100500
-      ]
+      "value2": "value_is_missing",
+      "old_value": {
+         "abc": 12345,
+         "deep": {
+            "id": 45
+         }
+      },
+      "flag": "delete"
+   },
+   "group3": {
+      "value1": "value_is_missing",
+      "value2": {
+         "deep": {
+            "id": {
+               "number": 45
+            }
+         },
+         "fee": 100500
+      },
+      "old_value": "value_is_missing",
+      "flag": "add"
    }
 }

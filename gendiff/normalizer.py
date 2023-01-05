@@ -1,5 +1,5 @@
-def get_normalize_(tree):
-    correct_ = {
+def get_normalize_gendiff(tree):
+    correct = {
         "True": 'true',
         "False": 'false',
         "None": 'null'
@@ -7,8 +7,8 @@ def get_normalize_(tree):
 
     def walker(node):
         if not isinstance(node, dict):
-            if str(node) in correct_.keys():
-                node = correct_[str(node)]
+            if str(node) in correct.keys():
+                node = correct[str(node)]
             return node
 
         for key, value in node.items():
