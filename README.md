@@ -78,4 +78,4 @@ gendiff --format json file1.yml file2.yml
 
 
 #### Json format:
-[![asciicast](https://asciinema.org/a/0kOAC6MbuY8MNGMzFb32oR8bI.svg)](https://asciinema.org/a/0kOAC6MbuY8MNGMzFb32oR8bI)
+[![asciicast](https://asciinema.org/a/gw9tuHOGEz1h62BLssHnVwiNf.svg)](https://asciinema.org/a/gw9tuHOGEz1h62BLssHnVwiNf)
