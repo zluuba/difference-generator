@@ -20,6 +20,9 @@ Used with the terminal. </br>
 
 Clone this repo or download it with pip:
 ```ch
+git clone https://github.com/zluuba/python-project-50.git
+```
+```ch
 pip install --user git+https://github.com/zluuba/python-project-50.git
 ```
 
@@ -41,7 +44,7 @@ gendiff -f                # set output format
 gendiff --format
 ```
 
-### Sample commands
+#### Gendiff commands
 
 Show the differences between two files with default formatter **stylish**
 ([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-formatter))
