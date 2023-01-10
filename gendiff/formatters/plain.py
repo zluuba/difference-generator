@@ -1,4 +1,4 @@
-from gendiff.normalizer import get_normalize_gendiff
+from gendiff.formatters.stylish import get_flag, to_str
 
 
 KEYWORDS = ['true', 'false', 'null']
@@ -6,8 +6,9 @@ COMPLEX_VALUE = '[complex value]'
 
 
 def get_plain_value(value):
-    if value in KEYWORDS or str(value).isnumeric():
-        plain_value = value
+    normalize_value = to_str(value)
+    if normalize_value in KEYWORDS or str(value).isnumeric():
+        plain_value = normalize_value
     elif isinstance(value, dict):
         plain_value = COMPLEX_VALUE
     else:
@@ -19,35 +20,13 @@ def get_plain_event(flag, value, event=None):
     if flag == 'delete':
         event = 'was removed'
     elif flag == 'add':
-        new_value = get_plain_value(value["value2"])
+        new_value = get_plain_value(value["new_value"])
         event = f'was added with value: {new_value}'
     elif flag == 'update':
-        new_value = get_plain_value(value['value2'])
-        old_value = get_plain_value(value['value1'])
+        old_value = get_plain_value(value['old_value'])
+        new_value = get_plain_value(value['new_value'])
         event = f'was updated. From {old_value} to {new_value}'
     return event
-
-
-def get_flag(value):
-    if isinstance(value, dict) and 'flag' in value:
-        return value['flag']
-    return 'default'
-
-
-def get_line(key, value, path, walker):
-    current_path = f"{path}{key}."
-    flag = get_flag(value)
-    line = ''
-
-    if isinstance(value, dict) and flag == 'default':
-        line = walker(value, current_path)
-    else:
-        event = get_plain_event(flag, value)
-        new_path = current_path.strip('.')
-        if event:
-            line = f"Property '{new_path}' {event}"
-
-    return line
 
 
 def get_plain_diff(diff_dict):
@@ -55,9 +34,20 @@ def get_plain_diff(diff_dict):
         lines = []
 
         for key, value in node.items():
-            line = get_line(key, value, path, walker)
+            current_path = f"{path}{key}."
+            flag = get_flag(value)
+            line = ''
+
+            if isinstance(value, dict) and flag == 'default':
+                line = walker(value, current_path)
+            else:
+                event = get_plain_event(flag, value)
+                new_path = current_path.strip('.')
+                if event:
+                    line = f"Property '{new_path}' {event}"
+
             if line:
                 lines.append(line)
 
         return '\n'.join(lines)
-    return walker(get_normalize_gendiff(diff_dict))
+    return walker(diff_dict)

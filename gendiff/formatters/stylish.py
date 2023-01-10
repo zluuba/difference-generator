@@ -1,8 +1,28 @@
-from gendiff.normalizer import get_normalize_gendiff
 import itertools
 
 
 FLAGS = {'default': '   ', 'add': ' + ', 'delete': ' - '}
+CORRECT_ = {'True': 'true', 'False': 'false', 'None': 'null'}
+
+
+def to_str(node):
+    str_node = str(node)
+    if str_node in CORRECT_.keys():
+        node = CORRECT_[str_node]
+    return node
+
+
+def get_flag(value):
+    if isinstance(value, dict) and 'flag' in value:
+        return value['flag']
+    return 'default'
+
+
+def get_stylish_key(key, value):
+    flag = get_flag(value)
+    if flag in FLAGS:
+        return FLAGS[flag] + key
+    return [FLAGS['delete'] + key, FLAGS['add'] + key]
 
 
 def get_stylish_value(value):
@@ -11,24 +31,10 @@ def get_stylish_value(value):
         if 'flag' not in value:
             stylish_value = value
         elif value['flag'] == 'add':
-            stylish_value = value["value2"]
+            stylish_value = value['new_value']
         else:
-            stylish_value = value["value1"]
+            stylish_value = value['old_value']
     return stylish_value
-
-
-def get_stylish_flag(value):
-    if isinstance(value, dict) and 'flag' in value:
-        return value['flag']
-    return 'default'
-
-
-def get_stylish_key(key, value):
-    flag = get_stylish_flag(value)
-
-    if flag in FLAGS:
-        return FLAGS[flag] + key
-    return [FLAGS['delete'] + key, FLAGS['add'] + key]
 
 
 def get_line(key, value, walker, *args):
@@ -40,9 +46,9 @@ def get_line(key, value, walker, *args):
             (value['flag'] not in FLAGS):
 
         line1 = f'{deep_indent}{new_key[0]}: ' \
-                f'{walker(value["value1"], deep_indent_size + indent)}'
+                f'{walker(value["old_value"], deep_indent_size + indent)}'
         line2 = f'{deep_indent}{new_key[1]}: ' \
-                f'{walker(value["value2"], deep_indent_size + indent)}'
+                f'{walker(value["new_value"], deep_indent_size + indent)}'
         lines.append(line1)
         lines.append(line2)
 
@@ -59,7 +65,7 @@ def get_line(key, value, walker, *args):
 def get_stylish_diff(dictionary, replacer=' ', count=1, indent=3):
     def walker(node, depth=0):
         if not isinstance(node, dict):
-            return node
+            return to_str(node)
 
         deep_indent_size = depth + count
         deep_indent = replacer * deep_indent_size
@@ -71,7 +77,7 @@ def get_stylish_diff(dictionary, replacer=' ', count=1, indent=3):
                             deep_indent, deep_indent_size, indent)
             lines += line
 
-        result = itertools.chain("{", lines, [current_indent + "}"])
+        result = itertools.chain('{', lines, [current_indent + '}'])
         return '\n'.join(result)
 
-    return walker(get_normalize_gendiff(dictionary))
+    return walker(dictionary)
