@@ -23,7 +23,7 @@ Clone this repo or download it with pip:
 pip install --user git+https://github.com/zluuba/python-project-50.git
 ```
 
-Use these commands to install the package:
+Use these commands to install package:
 ```ch
 make install
 make build
@@ -42,22 +42,21 @@ gendiff --format
 ```
 
 ### Sample commands
-*Compare only .json or .yaml (.yml) files.* </br>
 
 Show the differences between two files with default formatter **stylish**
-([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-format))
+([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-formatter))
 ```ch
 gendiff file1.json file2.json
 ```
 
 **Plain** formatter
-([demo](https://github.com/zluuba/python-project-50#plain-format))
+([demo](https://github.com/zluuba/python-project-50#plain-formatter))
 ```ch
 gendiff -f plain file1.json file2.json
 ```
 
 **Json** formatter
-([demo](https://github.com/zluuba/python-project-50#json-format))
+([demo](https://github.com/zluuba/python-project-50#json-formatter))
 ```ch
 gendiff -f json file1.yml file2.yml
 ```
@@ -65,7 +64,7 @@ gendiff -f json file1.yml file2.yml
 
 ### Demos
 
-#### Flat files, stylish formatter:
+#### Help option, flat files, stylish formatter:
 [![asciicast](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk.svg)](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk)
 
 
