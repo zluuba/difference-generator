@@ -5,8 +5,8 @@
 
 
 ## Difference generator
-Compares two files and outputs the result of the comparison. **Json** and **yaml** formats are supported. </br>
-You can also output comparison result in three different style: stylish, plain and json. </br>
+Compare two files and output the result in three different style: stylish, plain and json. </br>
+**Json** and **yaml** formats are supported. </br>
 Used with the terminal. </br>
 
 
