@@ -14,18 +14,24 @@ def yaml_files():
 
 
 @pytest.fixture
-def stylish():
+def stylish_format():
     stylish = "tests/fixtures/expected_stylish.txt"
     return open(stylish).read()
 
 
 @pytest.fixture
-def plain():
+def plain_format():
     plain = "tests/fixtures/expected_plain.txt"
     return open(plain).read()
 
 
 @pytest.fixture
-def json():
-    json = "tests/fixtures/expected_json.txt"
+def json_format_yaml():
+    json = "tests/fixtures/expected_json_yaml.txt"
+    return open(json).read()
+
+
+@pytest.fixture
+def json_format_json():
+    json = "tests/fixtures/expected_json_json.txt"
     return open(json).read()
