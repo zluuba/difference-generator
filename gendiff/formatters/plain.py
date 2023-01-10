@@ -36,18 +36,16 @@ def get_plain_diff(diff_dict):
         for key, value in node.items():
             current_path = f"{path}{key}."
             flag = get_flag(value)
-            line = ''
 
             if isinstance(value, dict) and flag == 'default':
                 line = walker(value, current_path)
+                lines.append(line)
             else:
                 event = get_plain_event(flag, value)
                 new_path = current_path.strip('.')
                 if event:
                     line = f"Property '{new_path}' {event}"
-
-            if line:
-                lines.append(line)
+                    lines.append(line)
 
         return '\n'.join(lines)
     return walker(diff_dict)
