@@ -47,19 +47,19 @@ gendiff --format
 #### Gendiff commands
 
 Show the differences between two files with default formatter **stylish**
-([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-formatter))
+([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-formatter)):
 ```ch
 gendiff file1.json file2.json
 ```
 
 **Plain** formatter
-([demo](https://github.com/zluuba/python-project-50#plain-formatter))
+([demo](https://github.com/zluuba/python-project-50#plain-formatter)):
 ```ch
 gendiff -f plain file1.json file2.json
 ```
 
 **Json** formatter
-([demo](https://github.com/zluuba/python-project-50#json-formatter))
+([demo](https://github.com/zluuba/python-project-50#json-formatter)):
 ```ch
 gendiff -f json file1.yml file2.yml
 ```
