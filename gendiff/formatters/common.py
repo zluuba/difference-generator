@@ -1,11 +1,10 @@
-CORRECT_VALUES = {True: 'true',
-                  False: 'false',
-                  None: 'null'}
+CORRECT_VALUES = {'True': 'true', 'False': 'false', 'None': 'null'}
 
 
 def to_str(node):
-    if node in CORRECT_VALUES.keys():
-        node = CORRECT_VALUES[node]
+    str_node = str(node)
+    if str_node in CORRECT_VALUES.keys():
+        node = CORRECT_VALUES[str_node]
     return node
 
 
