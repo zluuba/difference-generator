@@ -2,7 +2,7 @@ from gendiff.formatters.common import get_flag, to_str
 
 
 def get_plain_value(value):
-    if type(value) is bool or value is None:
+    if isinstance(value, bool) or value is None:
         plain_value = to_str(value)
     elif str(value).isnumeric():
         plain_value = value

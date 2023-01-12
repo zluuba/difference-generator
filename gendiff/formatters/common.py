@@ -1,10 +1,10 @@
-CORRECT_VALUES = {'True': 'true', 'False': 'false', 'None': 'null'}
+SPECIAL_VALUES = {'True': 'true', 'False': 'false', 'None': 'null'}
 
 
 def to_str(node):
     str_node = str(node)
-    if str_node in CORRECT_VALUES.keys():
-        node = CORRECT_VALUES[str_node]
+    if str_node in SPECIAL_VALUES.keys():
+        node = SPECIAL_VALUES[str_node]
     return node
 
 

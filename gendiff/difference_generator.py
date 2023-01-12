@@ -19,8 +19,8 @@ def get_diff_node(node1, node2, key, walker):
         diff_parts['old_value'] = value1
         diff_parts['new_value'] = value2
 
-        node1_not_dict = not type(value1) is dict
-        node2_not_dict = not type(value2) is dict
+        node1_not_dict = not isinstance(value1, dict)
+        node2_not_dict = not isinstance(value2, dict)
 
         if value1 != value2 and (node1_not_dict or node2_not_dict):
             diff_parts['flag'] = 'update'
