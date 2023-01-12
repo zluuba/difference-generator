@@ -1,23 +1,20 @@
-from gendiff.formatters.stylish import get_flag, to_str
-
-
-KEYWORDS = ['true', 'false', 'null']
-COMPLEX_VALUE = '[complex value]'
+from gendiff.formatters.common import get_flag, to_str
 
 
 def get_plain_value(value):
-    normalize_value = to_str(value)
-    if normalize_value in KEYWORDS or str(value).isnumeric():
-        plain_value = normalize_value
+    if type(value) is bool or value is None:
+        plain_value = to_str(value)
+    elif str(value).isnumeric():
+        plain_value = value
     elif isinstance(value, dict):
-        plain_value = COMPLEX_VALUE
+        plain_value = '[complex value]'
     else:
         plain_value = f"'{value}'"
     return plain_value
 
 
 def get_plain_event(flag, value, event=None):
-    if flag == 'delete':
+    if flag == 'remove':
         event = 'was removed'
     elif flag == 'add':
         new_value = get_plain_value(value["new_value"])

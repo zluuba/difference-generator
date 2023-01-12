@@ -26,12 +26,6 @@ def plain_format():
 
 
 @pytest.fixture
-def json_format_yaml():
-    json = "tests/fixtures/expected_json_yaml.txt"
-    return open(json).read()
-
-
-@pytest.fixture
-def json_format_json():
-    json = "tests/fixtures/expected_json_json.txt"
+def json_format():
+    json = "tests/fixtures/expected_json.txt"
     return open(json).read()

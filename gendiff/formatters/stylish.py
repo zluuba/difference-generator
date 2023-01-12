@@ -1,28 +1,15 @@
+from gendiff.formatters.common import get_flag, to_str
 import itertools
 
 
-FLAGS = {'default': '   ', 'add': ' + ', 'delete': ' - '}
-CORRECT_ = {'True': 'true', 'False': 'false', 'None': 'null'}
-
-
-def to_str(node):
-    str_node = str(node)
-    if str_node in CORRECT_.keys():
-        node = CORRECT_[str_node]
-    return node
-
-
-def get_flag(value):
-    if isinstance(value, dict) and 'flag' in value:
-        return value['flag']
-    return 'default'
+FLAGS = {'default': '   ', 'add': ' + ', 'remove': ' - '}
 
 
 def get_stylish_key(key, value):
     flag = get_flag(value)
     if flag in FLAGS:
         return FLAGS[flag] + key
-    return [FLAGS['delete'] + key, FLAGS['add'] + key]
+    return [FLAGS['remove'] + key, FLAGS['add'] + key]
 
 
 def get_stylish_value(value):

@@ -8,7 +8,7 @@ def upload(file):
     if file_extension == '.json':
         uploaded_file = json.load(open(file))
     elif file_extension in {'.yaml', '.yml'}:
-        uploaded_file = yaml.load(open(file), Loader=yaml.BaseLoader)
+        uploaded_file = yaml.load(open(file), Loader=yaml.Loader)
     else:
         raise ValueError(f'Incorrect format: {file_extension}')
 
