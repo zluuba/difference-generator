@@ -1,4 +1,4 @@
-from gendiff.formatters.common import get_flag, to_str
+from gendiff.formatters.common import get_flag, to_json_format
 import itertools
 
 
@@ -52,7 +52,7 @@ def get_line(key, value, walker, *args):
 def get_stylish_diff(dictionary, replacer=' ', count=1, indent=3):
     def walker(node, depth=0):
         if not isinstance(node, dict):
-            return to_str(node)
+            return to_json_format(node)
 
         deep_indent_size = depth + count
         deep_indent = replacer * deep_indent_size

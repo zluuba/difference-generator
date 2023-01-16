@@ -1,11 +1,10 @@
-SPECIAL_VALUES = {'True': 'true', 'False': 'false', 'None': 'null'}
+import json
 
 
-def to_str(node):
-    str_node = str(node)
-    if str_node in SPECIAL_VALUES.keys():
-        node = SPECIAL_VALUES[str_node]
-    return node
+def to_json_format(node):
+    if isinstance(node, str):
+        return node
+    return json.dumps(node)
 
 
 def get_flag(value):

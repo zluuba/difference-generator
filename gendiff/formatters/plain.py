@@ -1,9 +1,9 @@
-from gendiff.formatters.common import get_flag, to_str
+from gendiff.formatters.common import get_flag, to_json_format
 
 
 def get_plain_value(value):
     if isinstance(value, bool) or value is None:
-        plain_value = to_str(value)
+        plain_value = to_json_format(value)
     elif str(value).isnumeric():
         plain_value = value
     elif isinstance(value, dict):
