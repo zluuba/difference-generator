@@ -3,7 +3,8 @@ from gendiff.difference_generator import generate_diff
 
 
 def main():
-    print(generate_diff(*parse_args()))
+    first_file, second_file, formatter = parse_args()
+    print(generate_diff(first_file, second_file, formatter))
 
 
 if __name__ == '__main__':
