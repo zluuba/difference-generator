@@ -2,7 +2,7 @@ import pytest
 from gendiff.loader import upload
 
 
-def test_get_data(file):
+def test_loader_exception(file):
     with pytest.raises(ValueError) as error:
         upload(file)
 
