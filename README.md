@@ -12,7 +12,7 @@ Used with the terminal. </br>
 
 ### Requirements
 - [python](https://www.python.org/), version 3.9 or higher
-- [poetry](https://python-poetry.org/), version 1.0.0 or higher
+- [poetry](https://python-poetry.org/), version 1.2.0 or higher
 - [pyyaml](https://pyyaml.org/), version 6.0 or higher
 
 
@@ -45,6 +45,12 @@ gendiff --format
 ```
 
 #### Gendiff commands
+
+Outputs brief documentation for how to invoke the program
+([demo](https://github.com/zluuba/python-project-50#help-option-flat-files-stylish-formatter)):
+```ch
+gendiff --help
+```
 
 Show the differences between two files with default formatter **stylish**
 ([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-formatter)):
