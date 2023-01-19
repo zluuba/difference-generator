@@ -1,37 +1,50 @@
 import pytest
+import os
+
+
+def get_fixture_path(name):
+    return os.path.join('tests/fixtures/', name)
 
 
 @pytest.fixture
 def file():
-    file = "tests/fixtures/file.txt"
+    file = get_fixture_path("file.txt")
     return file
 
 
 @pytest.fixture
 def json_files():
-    json1, json2 = "tests/fixtures/file1.json", "tests/fixtures/file2.json"
+    json1 = get_fixture_path("file1.json")
+    json2 = get_fixture_path("file2.json")
     return json1, json2
 
 
 @pytest.fixture
 def yaml_files():
-    yaml1, yaml2 = "tests/fixtures/file1.yml", "tests/fixtures/file2.yml"
+    yaml1 = get_fixture_path("file1.yml")
+    yaml2 = get_fixture_path("file2.yml")
     return yaml1, yaml2
 
 
 @pytest.fixture
 def stylish_format():
-    stylish = "tests/fixtures/expected_stylish.txt"
-    return open(stylish).read()
+    stylish = get_fixture_path("expected_stylish.txt")
+    with open(stylish) as stylish_file:
+        expected_stylish = stylish_file.read()
+    return expected_stylish
 
 
 @pytest.fixture
 def plain_format():
-    plain = "tests/fixtures/expected_plain.txt"
-    return open(plain).read()
+    plain = get_fixture_path("expected_plain.txt")
+    with open(plain) as plain_file:
+        expected_plain = plain_file.read()
+    return expected_plain
 
 
 @pytest.fixture
 def json_format():
-    json = "tests/fixtures/expected_json.txt"
-    return open(json).read()
+    json = get_fixture_path("expected_json.txt")
+    with open(json) as json_file:
+        expected_json = json_file.read()
+    return expected_json
