@@ -2,6 +2,12 @@ import pytest
 
 
 @pytest.fixture
+def file():
+    file = "tests/fixtures/file.txt"
+    return file
+
+
+@pytest.fixture
 def json_files():
     json1, json2 = "tests/fixtures/file1.json", "tests/fixtures/file2.json"
     return json1, json2
