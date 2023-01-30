@@ -20,10 +20,10 @@ Used with the terminal. </br>
 
 Clone this repo or download it with pip:
 ```ch
-git clone https://github.com/zluuba/python-project-50.git
+git clone https://github.com/zluuba/difference-generator.git
 ```
 ```ch
-pip install --user git+https://github.com/zluuba/python-project-50.git
+pip install --user git+https://github.com/zluuba/difference-generator.git
 ```
 
 Use these commands to install package:
@@ -47,25 +47,25 @@ gendiff --format
 #### Gendiff commands
 
 Outputs brief documentation for how to invoke the program
-([demo](https://github.com/zluuba/python-project-50#help-option-flat-files-stylish-formatter)):
+([demo](https://github.com/zluuba/difference-generator#help-option-flat-files-stylish-formatter)):
 ```ch
 gendiff --help
 ```
 
 Show the differences between two files with default formatter **stylish**
-([demo](https://github.com/zluuba/python-project-50#nested-files-stylish-formatter)):
+([demo](https://github.com/zluuba/difference-generator#nested-files-stylish-formatter)):
 ```ch
 gendiff file1.json file2.json
 ```
 
 **Plain** formatter
-([demo](https://github.com/zluuba/python-project-50#plain-formatter)):
+([demo](https://github.com/zluuba/difference-generator#plain-formatter)):
 ```ch
 gendiff -f plain file1.json file2.json
 ```
 
 **Json** formatter
-([demo](https://github.com/zluuba/python-project-50#json-formatter)):
+([demo](https://github.com/zluuba/difference-generator#json-formatter)):
 ```ch
 gendiff -f json file1.yml file2.yml
 ```
