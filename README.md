@@ -6,9 +6,9 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/83963175416f052072a8/test_coverage)](https://codeclimate.com/github/zluuba/python-project-50/test_coverage)
 
 
-Difference generator (aka gendiff) compares two files and outputs the result in three different style: stylish, plain and json. </br>
-**Json** and **yaml** formats are supported. </br>
+Difference generator (aka gendiff) compares two files and outputs the result in three different style: stylish, plain and json. 
 Used with the terminal. </br>
+**Json** and **yaml** formats are supported. </br>
 
 
 ### Requirements
