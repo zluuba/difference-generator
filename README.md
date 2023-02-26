@@ -1,11 +1,12 @@
+# Difference generator
+
 [![Actions Status](https://github.com/zluuba/python-project-50/workflows/hexlet-check/badge.svg)](https://github.com/zluuba/python-project-50/actions) 
 [![Python CI](https://github.com/zluuba/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/zluuba/python-project-50/actions/workflows/pyci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/83963175416f052072a8/maintainability)](https://codeclimate.com/github/zluuba/python-project-50/maintainability) 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/83963175416f052072a8/test_coverage)](https://codeclimate.com/github/zluuba/python-project-50/test_coverage)
 
 
-## Difference generator
-Compare two files and output the result in three different style: stylish, plain and json. </br>
+Difference generator (aka gendiff) compares two files and outputs the result in three different style: stylish, plain and json. </br>
 **Json** and **yaml** formats are supported. </br>
 Used with the terminal. </br>
 
@@ -13,7 +14,6 @@ Used with the terminal. </br>
 ### Requirements
 - [python](https://www.python.org/), version 3.9 or higher
 - [poetry](https://python-poetry.org/), version 1.2.0 or higher
-- [pyyaml](https://pyyaml.org/), version 6.0 or higher
 
 
 ### Installation 
@@ -26,7 +26,7 @@ git clone https://github.com/zluuba/difference-generator.git
 pip install --user git+https://github.com/zluuba/difference-generator.git
 ```
 
-Use these commands to install package:
+Install package and dependencies:
 ```ch
 make install
 make build
