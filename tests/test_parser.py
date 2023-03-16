@@ -14,3 +14,4 @@ FILE1, FILE2 = 'file1.yml', 'file2.yml'
 def test_parse_args(mock_args):
     parsed = app_parser()
     assert parsed == (FILE1, FILE2, FORMAT)
+g
