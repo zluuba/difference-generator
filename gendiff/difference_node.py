@@ -1,5 +1,4 @@
 def get_diff_node(node1, node2, key, walker):
-    diff_node = dict()
     diff_parts = {'flag': 'default'}
 
     if key not in node1:
@@ -20,6 +19,8 @@ def get_diff_node(node1, node2, key, walker):
 
         if value1 != value2 and (node1_not_dict or node2_not_dict):
             diff_parts['flag'] = 'update'
+
+    diff_node = dict()
 
     if diff_parts['flag'] == 'default':
         diff_node[key] = walker(

@@ -8,5 +8,5 @@ def get_format_diff(diff_dict, format_name):
         return json.get_json_diff(diff_dict)
     elif format_name == 'stylish':
         return stylish.get_stylish_diff(diff_dict)
-    else:
-        raise ValueError(f'Unknown format: {format_name}')
+
+    raise ValueError(f'Unknown format: {format_name}')

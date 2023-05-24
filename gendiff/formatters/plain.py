@@ -20,8 +20,8 @@ def get_plain_event(flag, value, event=None):
         new_value = get_plain_value(value["new_value"])
         event = f'was added with value: {new_value}'
     elif flag == 'update':
-        old_value = get_plain_value(value['old_value'])
         new_value = get_plain_value(value['new_value'])
+        old_value = get_plain_value(value['old_value'])
         event = f'was updated. From {old_value} to {new_value}'
     return event
 
@@ -39,8 +39,8 @@ def get_plain_diff(diff_dict):
                 lines.append(line)
             else:
                 event = get_plain_event(flag, value)
-                new_path = current_path.strip('.')
                 if event:
+                    new_path = current_path.strip('.')
                     line = f"Property '{new_path}' {event}"
                     lines.append(line)
 

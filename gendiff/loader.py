@@ -8,8 +8,8 @@ def get_data(file, file_extension):
         return json.load(file)
     elif file_extension in {'.yaml', '.yml'}:
         return yaml.load(file, Loader=yaml.Loader)
-    else:
-        raise ValueError(f'Incorrect format: {file_extension}')
+
+    raise ValueError(f'Incorrect format: {file_extension}')
 
 
 def upload(source_file):

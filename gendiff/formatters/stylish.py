@@ -24,7 +24,7 @@ def get_stylish_value(value):
     return stylish_value
 
 
-def get_line(key, value, walker, *args):
+def get_lines(key, value, walker, *args):
     indent, deep_indent, deep_indent_size = args
     new_key = get_stylish_key(key, value)
     lines = []
@@ -60,8 +60,8 @@ def get_stylish_diff(dictionary, replacer=' ', count=1, indent=3):
         lines = []
 
         for key, value in node.items():
-            lines += get_line(key, value, walker, indent,
-                              deep_indent, deep_indent_size)
+            lines += get_lines(key, value, walker, indent,
+                               deep_indent, deep_indent_size)
 
         result = itertools.chain('{', lines, [current_indent + '}'])
         return '\n'.join(result)
