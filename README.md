@@ -6,17 +6,17 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/83963175416f052072a8/test_coverage)](https://codeclimate.com/github/zluuba/python-project-50/test_coverage)
 
 
-Difference generator (aka gendiff) compares two files and outputs the result in three different style: stylish, plain and json. 
+Difference generator compares two files and outputs the result in three different style: stylish, plain and json. 
 Used with the terminal. </br>
 **Json** and **yaml** formats are supported. </br>
 
 
-### Requirements
+## Requirements
 - [python](https://www.python.org/), version 3.9 or higher
 - [poetry](https://python-poetry.org/), version 1.2.0 or higher
 
 
-### Installation 
+## Installation 
 
 Clone this repo or download it with pip:
 ```ch
@@ -28,15 +28,18 @@ pip install --user git+https://github.com/zluuba/difference-generator.git
 
 Install package and dependencies:
 ```ch
+cd difference-generator
 make install
 make build
 make package-install
 ```
 
-### Commands
-#### Options
+## Commands
+### Options
 
-```ch
+```python
+gendiff [-h] [-f FORMAT] first_file second_file
+
 gendiff -h                # print help text
 gendiff --help
 
@@ -44,7 +47,7 @@ gendiff -f                # set output format
 gendiff --format
 ```
 
-#### Gendiff commands
+### Gendiff commands
 
 Outputs brief documentation for how to invoke the program
 ([demo](https://github.com/zluuba/difference-generator#help-option-flat-files-stylish-formatter)):
@@ -71,19 +74,19 @@ gendiff -f json file1.yml file2.yml
 ```
 
 
-### Demos
+## Demos
 
-#### Help option, flat files, stylish formatter:
+### Help option, flat files, stylish formatter:
 [![asciicast](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk.svg)](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk)
 
 
-#### Nested files, stylish formatter:
+### Nested files, stylish formatter:
 [![asciicast](https://asciinema.org/a/arUl8ZVGSi4hzsnaNf0nKwjZL.svg)](https://asciinema.org/a/arUl8ZVGSi4hzsnaNf0nKwjZL)
 
 
-#### Plain formatter:
+### Plain formatter:
 [![asciicast](https://asciinema.org/a/0V1KMW2AuUasLxNQ9ty6E11GO.svg)](https://asciinema.org/a/0V1KMW2AuUasLxNQ9ty6E11GO)
 
 
-#### Json formatter:
+### Json formatter:
 [![asciicast](https://asciinema.org/a/6RRQ0OlgISxrA9vx9ueJFCqcJ.svg)](https://asciinema.org/a/6RRQ0OlgISxrA9vx9ueJFCqcJ)
