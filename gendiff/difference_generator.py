@@ -3,7 +3,7 @@ from gendiff.formatter import get_format_diff
 from gendiff.loader import upload
 
 
-def generate_diff(file1, file2, formatter='stylish'):
+def generate_diff(file1: str, file2: str, formatter: str = 'stylish') -> str:
     uploaded_file1 = upload(file1)
     uploaded_file2 = upload(file2)
 

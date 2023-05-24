@@ -1,7 +1,7 @@
 from gendiff.formatters import stylish, plain, json
 
 
-def get_format_diff(diff_dict, format_name):
+def get_format_diff(diff_dict: dict, format_name: str) -> str:
     if format_name == 'plain':
         return plain.get_plain_diff(diff_dict)
     elif format_name == 'json':

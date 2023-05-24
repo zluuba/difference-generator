@@ -1,4 +1,9 @@
-def get_diff_node(node1, node2, key, walker):
+from typing import Union, Callable
+
+
+def get_diff_node(node1: Union[dict, str], node2: Union[dict, str],
+                  key: str, walker: Callable) -> dict:
+
     diff_parts = {'flag': 'default'}
 
     if key not in node1:

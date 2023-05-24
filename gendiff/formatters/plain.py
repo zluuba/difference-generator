@@ -1,7 +1,8 @@
+from typing import Any, Union
 from gendiff.formatters.common import get_flag, to_json_format
 
 
-def get_plain_value(value):
+def get_plain_value(value: Any) -> Union[str, int]:
     if isinstance(value, bool) or value is None:
         plain_value = to_json_format(value)
     elif str(value).isnumeric():
@@ -13,7 +14,7 @@ def get_plain_value(value):
     return plain_value
 
 
-def get_plain_event(flag, value, event=None):
+def get_plain_event(flag: str, value: dict, event=None) -> str:
     if flag == 'remove':
         event = 'was removed'
     elif flag == 'add':
@@ -26,7 +27,7 @@ def get_plain_event(flag, value, event=None):
     return event
 
 
-def get_plain_diff(diff_dict):
+def get_plain_diff(diff_dict: dict) -> str:
     def walker(node, path=''):
         lines = []
 

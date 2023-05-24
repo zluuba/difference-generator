@@ -1,3 +1,5 @@
+from typing import Union, Callable
+
 from gendiff.formatters.common import get_flag, to_json_format
 import itertools
 
@@ -5,14 +7,16 @@ import itertools
 FLAGS = {'default': '   ', 'add': ' + ', 'remove': ' - '}
 
 
-def get_stylish_key(key, value):
+def get_stylish_key(key: str,
+                    value: Union[dict, str]) -> Union[str, list]:
+
     flag = get_flag(value)
     if flag in FLAGS:
         return FLAGS[flag] + key
     return [FLAGS['remove'] + key, FLAGS['add'] + key]
 
 
-def get_stylish_value(value):
+def get_stylish_value(value: Union[dict, str]) -> str:
     stylish_value = value
     if isinstance(value, dict):
         if 'flag' not in value:
@@ -24,7 +28,9 @@ def get_stylish_value(value):
     return stylish_value
 
 
-def get_lines(key, value, walker, *args):
+def get_lines(key: str, value: Union[dict, str],
+              walker: Callable, *args: Union[str, int]) -> list:
+
     indent, deep_indent, deep_indent_size = args
     new_key = get_stylish_key(key, value)
     lines = []
@@ -49,7 +55,7 @@ def get_lines(key, value, walker, *args):
     return lines
 
 
-def get_stylish_diff(dictionary, replacer=' ', count=1, indent=3):
+def get_stylish_diff(dictionary: dict, replacer=' ', count=1, indent=3) -> str:
     def walker(node, depth=0):
         if not isinstance(node, dict):
             return to_json_format(node)
