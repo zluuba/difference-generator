@@ -6,7 +6,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/83963175416f052072a8/test_coverage)](https://codeclimate.com/github/zluuba/python-project-50/test_coverage)
 
 
-Difference generator compares two files and outputs the result in three different style: stylish, plain and json. 
+Difference generator compares two files and outputs the result in three different style: stylish, plain and json. </br>
 Used with the terminal. </br>
 **Json** and **yaml** formats are supported. </br>
 
@@ -37,56 +37,53 @@ make package-install
 ## Commands
 ### Options
 
-```python
+```ch
 gendiff [-h] [-f FORMAT] first_file second_file
 
-gendiff -h                # print help text
-gendiff --help
-
-gendiff -f                # set output format
-gendiff --format
+-h, --help                # print help text
+-f, --format              # set output format
 ```
 
 ### Gendiff commands
 
-Outputs brief documentation for how to invoke the program
-([demo](https://github.com/zluuba/difference-generator#help-option-flat-files-stylish-formatter)):
-```ch
+```python
+# Outputs brief documentation for how to invoke the program
 gendiff --help
-```
 
-Show the differences between two files with default formatter **stylish**
-([demo](https://github.com/zluuba/difference-generator#nested-files-stylish-formatter)):
-```ch
+
+# Show the differences between two files with stylish formatter
+# P.S. stylish is the default formatter, but you can specify it:
+# gendiff -f stylish file1.json file2.json
 gendiff file1.json file2.json
-```
 
-**Plain** formatter
-([demo](https://github.com/zluuba/difference-generator#plain-formatter)):
-```ch
+
+# Show the differences between two files with plain formatter
 gendiff -f plain file1.json file2.json
+
+
+# Show the differences with json formatter
+gendiff -f json file1.yml file2.yml
 ```
 
-**Json** formatter
-([demo](https://github.com/zluuba/difference-generator#json-formatter)):
+You can also compare json and yaml file formats in the same command, for example:
 ```ch
-gendiff -f json file1.yml file2.yml
+gendiff file1.yml file2.json
 ```
 
 
 ## Demos
 
-### Help option, flat files, stylish formatter:
+### Help option, flat files, stylish formatter
 [![asciicast](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk.svg)](https://asciinema.org/a/V8EMBZ8dyIeVdGrgz5yOiY7tk)
 
 
-### Nested files, stylish formatter:
+### Nested files, stylish formatter
 [![asciicast](https://asciinema.org/a/arUl8ZVGSi4hzsnaNf0nKwjZL.svg)](https://asciinema.org/a/arUl8ZVGSi4hzsnaNf0nKwjZL)
 
 
-### Plain formatter:
+### Plain formatter
 [![asciicast](https://asciinema.org/a/0V1KMW2AuUasLxNQ9ty6E11GO.svg)](https://asciinema.org/a/0V1KMW2AuUasLxNQ9ty6E11GO)
 
 
-### Json formatter:
+### Json formatter
 [![asciicast](https://asciinema.org/a/6RRQ0OlgISxrA9vx9ueJFCqcJ.svg)](https://asciinema.org/a/6RRQ0OlgISxrA9vx9ueJFCqcJ)
